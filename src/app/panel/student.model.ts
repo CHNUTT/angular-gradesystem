@@ -2,16 +2,16 @@ export class StudentModel {
   public avg!: number;
 
   constructor(
-    public fName: string,
-    public lName: string,
-    public test1: number,
-    public test2: number,
-    public test3: number,
-    public project1: number,
-    public project2: number,
-    public project3: number,
-    public project4: number,
-    public project5: number
+    public fName: string = '',
+    public lName: string = '',
+    public test1: number = 0,
+    public test2: number = 0,
+    public test3: number  = 0,
+    public project1: number  = 0,
+    public project2: number  = 0,
+    public project3: number  = 0,
+    public project4: number  = 0,
+    public project5: number  = 0
   ) {
     this.calAvg();
   }

@@ -8,6 +8,7 @@ import { GradeFormComponent } from './panel/grade-form/grade-form.component';
 import { GradeListComponent } from './panel/grade-list/grade-list.component';
 import { GradeItemComponent } from './panel/grade-list/grade-item/grade-item.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

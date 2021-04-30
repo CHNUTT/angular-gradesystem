@@ -11,11 +11,28 @@ export class PanelComponent implements OnInit {
     students: [
       new StudentModel('John', 'Lennon', 100, 90, 95, 100, 65, 78, 80, 94),
       new StudentModel('Kenneth', 'Kohl', 67, 86, 100, 80, 95, 72, 88, 89),
-      new StudentModel('Chomchanok', 'Taosabai', 100, 100, 100, 100, 100, 100, 100, 100),
+      new StudentModel(
+        'Chomchanok',
+        'Taosabai',
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ),
     ],
   };
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onCreateNewStudentRecord(student: StudentModel): void {
+    console.log(student);
+    this.state.students.push(student);
+    console.log(this.state.students);
+  }
 }
