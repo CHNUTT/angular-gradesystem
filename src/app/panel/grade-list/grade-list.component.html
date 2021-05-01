@@ -1,6 +1,6 @@
 <div class="grade-list-wrapper">
   <label for="lName">Students table</label>
-  <table class="table table-bordered table-striped">
+  <table class="table table-bordered table-striped table-hover">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -19,7 +19,7 @@
     </thead>
     <tbody>
       <tr app-grade-item *ngFor="let student of students; index as i "
-        [student]=student [index]=i></tr>
+        [student]=student [index]=i (click)="handleOnGradeItemClicked(i)"></tr>
     </tbody>
   </table>
 </div>

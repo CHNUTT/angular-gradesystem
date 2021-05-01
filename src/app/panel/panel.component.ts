@@ -25,6 +25,9 @@ export class PanelComponent implements OnInit {
         100
       ),
     ],
+    editMode: false,
+    selectedStudent: <Student | undefined>undefined,
+    selectedStudentIndex: -1,
   };
 
   constructor() {}
@@ -45,5 +48,33 @@ export class PanelComponent implements OnInit {
       student.project5
     );
     this.state.students.push(newStudent);
+  }
+
+  onUpdateStudentRecord(student: StudentModel): void {
+    this.state.students[this.state.selectedStudentIndex] = new Student(
+      student.fName,
+      student.lName,
+      student.test1,
+      student.test2,
+      student.test3,
+      student.project1,
+      student.project2,
+      student.project3,
+      student.project4,
+      student.project5
+    );
+    this.state.editMode = false;
+  }
+
+  onEditStudentRecord(index: number): void {
+    this.state.selectedStudent = this.state.students[index];
+    this.state.editMode = true;
+    this.state.selectedStudentIndex = index;
+  }
+
+  onEditStudentRecordCancel(): void {
+    this.state.selectedStudent = undefined;
+    this.state.editMode = false;
+    this.state.selectedStudentIndex = -1;
   }
 }

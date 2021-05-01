@@ -1,7 +1,15 @@
 <div class="container-fluid py-5">
   <h1>Grade Workseet - ITSE 2402</h1>
   <div class="row mt-lg-5 px-2">
-    <app-grade-form class="col-12 col-lg-4 border-right" (createNewStudentRecord)="onCreateNewStudentRecord($event)"></app-grade-form>
-    <app-grade-list [students]="state.students" class="col-12 col-lg-8"></app-grade-list>
+    <app-grade-form class="col-12 col-lg-4 border-right"
+      [editMode]="state.editMode"
+      [student]="state.selectedStudent"
+      (createNewStudentRecord)="onCreateNewStudentRecord($event)"
+      (updateStudentRecord)="onUpdateStudentRecord($event)"
+      (editStudentRecordCancel)="onEditStudentRecordCancel()">
+    </app-grade-form>
+    <app-grade-list class="col-12 col-lg-8" [students]="state.students"
+      (onGradeItemClicked)="onEditStudentRecord($event)">
+    </app-grade-list>
   </div>
 </div>
