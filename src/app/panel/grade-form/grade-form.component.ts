@@ -53,5 +53,6 @@ export class GradeFormComponent implements OnInit {
     if (form.invalid) return;
     const { value } = form;
     this.createNewStudentRecord.emit(value);
+    this.onReset();
   }
 }
