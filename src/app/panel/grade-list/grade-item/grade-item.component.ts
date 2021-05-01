@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { StudentModel } from '../../student.model';
+import { Student } from '../../student.model';
 
 @Component({
   selector: '[app-grade-item]',
@@ -8,7 +8,7 @@ import { StudentModel } from '../../student.model';
 })
 export class GradeItemComponent implements OnInit {
   @Input()
-  student!: StudentModel;
+  student!: Student;
   @Input() index!: number;
 
   constructor() {}

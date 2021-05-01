@@ -1,72 +1,135 @@
 <div class="grade-form-wrapper">
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <form #studentForm="ngForm" (ngSubmit)="onSubmit(studentForm)">
     <div class="row">
       <div class="form-group col-6">
         <label for="fName">First Name</label>
-        <input type="text" name="fName" class="form-control" id="fName"
-          [(ngModel)]="student.fName" required>
+        <input ngModel #fName="ngModel" type="text" name="fName"
+          class="form-control" id="fName" minlength="2" required>
+        <small *ngIf="fName.errors?.required && (fName.dirty || fName.touched)"
+          class="alert alert-danger">*required</small>
+        <small *ngIf="fName.errors?.minlength && (fName.dirty || fName.touched)"
+          class="alert alert-danger">*required at least 2 characters</small>
       </div>
       <div class="form-group col-6">
         <label for="lName">Last Name</label>
-        <input type="text" name="lName" class="form-control" id="lName"
-          [(ngModel)]="student.lName" required>
+        <input ngModel #lName="ngModel" type="text" name="lName"
+          class="form-control" id="lName" minlength="2" required>
+        <small *ngIf="lName.errors?.required && (lName.dirty || lName.touched)"
+          class="alert alert-danger">*required</small>
+        <small *ngIf="lName.errors?.minlength && (lName.dirty || lName.touched)"
+          class="alert alert-danger">*required at least 2 characters</small>
       </div>
     </div>
     <hr />
     <div class="row">
       <div class="form-group col-4">
         <label for="test1">Test I</label>
-        <input type="number" name="test1" class="form-control" id="test1"
-          [(ngModel)]="student.test1" min="0" max="100" required>
+        <input ngModel #test1="ngModel" type="number" name="test1"
+          class="form-control" id="test1" pattern="^[1-9][0-9]?$|^100$"
+          required>
+        <small *ngIf="test1.errors?.required && (test1.dirty || test1.touched)"
+          class="alert alert-danger">*required</small>
+        <small *ngIf="test1.errors?.pattern && (test1.dirty || test1.touched)"
+          class="alert alert-danger">*range is [0,100]</small>
       </div>
+
       <div class="form-group col-4">
         <label for="test2">Test II</label>
-        <input type="number" name="test2" class="form-control" id="test2"
-          [(ngModel)]="student.test2" min="0" max="100" required>
+        <input ngModel #test2="ngModel" type="number" name="test2"
+          class="form-control" id="test2" pattern="^[1-9][0-9]?$|^100$"
+          required>
+        <small *ngIf="test2.errors?.required && (test2.dirty || test2.touched)"
+          class="alert alert-danger">*required</small>
+        <small *ngIf="test2.errors?.pattern && (test2.dirty || test2.touched)"
+          class="alert alert-danger">*range is [0,100]</small>
       </div>
       <div class="form-group col-4">
         <label for="test3">Test III</label>
-        <input type="number" name="test3" class="form-control" id="test3"
-          [(ngModel)]="student.test3" min="0" max="100" required>
+        <input ngModel #test3="ngModel" type="number" name="test3"
+          class="form-control" id="test3" pattern="^[1-9][0-9]?$|^100$"
+          required>
+        <small *ngIf="test3.errors?.required && (test3.dirty || test3.touched)"
+          class="alert alert-danger">*required</small>
+        <small *ngIf="test3.errors?.pattern && (test3.dirty || test3.touched)"
+          class="alert alert-danger">*range is [0,100]</small>
       </div>
     </div>
     <hr />
     <div class="row">
       <div class="form-group col-4">
         <label for="project1">Project I</label>
-        <input type="number" name="project1" class="form-control" id="project1"
-          [(ngModel)]="student.project1" min="0" max="100" required>
+        <input ngModel #project1="ngModel" type="number" name="project1"
+          class="form-control" id="project1" pattern="^[1-9][0-9]?$|^100$"
+          required>
+        <small
+          *ngIf="project1.errors?.required && (project1.dirty || project1.touched)"
+          class="alert alert-danger">*required</small>
+        <small
+          *ngIf="project1.errors?.pattern && (project1.dirty || project1.touched)"
+          class="alert alert-danger">*range is [0,100]</small>
       </div>
 
       <div class="form-group col-4">
         <label for="project2">Project II</label>
-        <input type="number" name="project2" class="form-control" id="project2"
-          [(ngModel)]="student.project2" min="0" max="100" required>
+        <input ngModel #project2="ngModel" type="number" name="project2"
+          class="form-control" id="project2" pattern="^[1-9][0-9]?$|^100$"
+          required>
+        <small
+          *ngIf="project2.errors?.required && (project2.dirty || project2.touched)"
+          class="alert alert-danger">*required</small>
+        <small
+          *ngIf="project2.errors?.pattern && (project2.dirty || project2.touched)"
+          class="alert alert-danger">*range is [0,100]</small>
       </div>
 
       <div class="form-group col-4">
         <label for="project3">Project III</label>
-        <input type="number" name="project3" class="form-control" id="project3"
-          [(ngModel)]="student.project3" min="0" max="100" required>
+        <input ngModel #project3="ngModel" type="number" name="project3"
+          class="form-control" id="project3" pattern="^[1-9][0-9]?$|^100$"
+          required>
+        <small
+          *ngIf="project3.errors?.required && (project3.dirty || project3.touched)"
+          class="alert alert-danger">*required</small>
+        <small
+          *ngIf="project3.errors?.pattern && (project3.dirty || project3.touched)"
+          class="alert alert-danger">*range is [0,100]</small>
       </div>
 
       <div class="form-group col-4">
         <label for="project4">Project IV</label>
-        <input type="number" name="project4" class="form-control" id="project4"
-          [(ngModel)]="student.project4" min="0" max="100" required>
+        <input ngModel #project4="ngModel" type="number" name="project4"
+          class="form-control" id="project4" pattern="^[1-9][0-9]?$|^100$"
+          required>
+        <small
+          *ngIf="project4.errors?.required && (project4.dirty || project4.touched)"
+          class="alert alert-danger">*required</small>
+        <small
+          *ngIf="project4.errors?.pattern && (project4.dirty || project4.touched)"
+          class="alert alert-danger">*range is [0,100]</small>
       </div>
 
       <div class="form-group col-4">
         <label for="project5">Project V</label>
-        <input type="number" name="project5" class="form-control" id="project5"
-          [(ngModel)]="student.project5">
+        <input ngModel #project5="ngModel" type="number" name="project5"
+          class="form-control" id="project5" pattern="^[1-9][0-9]?$|^100$"
+          required>
+        <small
+          *ngIf="project5.errors?.required && (project5.dirty || project5.touched)"
+          class="alert alert-danger">*required</small>
+        <small
+          *ngIf="project5.errors?.pattern && (project5.dirty || project5.touched)"
+          class="alert alert-danger">*range is [0,100]</small>
       </div>
     </div>
     <hr />
     <div class="button-group mt-4">
-      <button type="button" class="btn btn-primary">Submit</button>
+      <button [disabled]="!studentForm.valid" type="submit"
+        class="btn btn-primary">Submit</button>
+      <button type="submit"
+        class="btn btn-primary">Submit</button>
       <button type="button" class="btn btn-warning ml-3">Clear</button>
-      <button type="button" class="btn btn-danger ml-3">Delete</button>
+      <button *ngIf="editMode" type="button"
+        class="btn btn-danger ml-3">Delete</button>
     </div>
   </form>
 </div>

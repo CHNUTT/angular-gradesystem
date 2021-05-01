@@ -7,7 +7,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { StudentModel } from '../student.model';
+import { Student } from '../student.model';
+import { StudentModel } from '../student-model.interface';
 
 @Component({
   selector: 'app-grade-form',
@@ -15,8 +16,8 @@ import { StudentModel } from '../student.model';
   styleUrls: ['./grade-form.component.css'],
 })
 export class GradeFormComponent implements OnInit {
-  @Input() student!: StudentModel;
-  @ViewChild('form') studentForm!: NgForm;
+  @Input() student!: Student;
+  @ViewChild('studentForm') studentForm!: NgForm;
   @Output()
   createNewStudentRecord: EventEmitter<StudentModel> = new EventEmitter<StudentModel>();
   editMode: boolean = false;
@@ -24,8 +25,20 @@ export class GradeFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    if (!this.student) {
-      this.student = new StudentModel();
+    console.log(this.studentForm);
+    if (this.student) {
+      this.studentForm.setValue({
+        fName: this.student.fName,
+        lName: this.student.lName,
+        test1: this.student.test1,
+        test2: this.student.test2,
+        test3: this.student.test3,
+        project1: this.student.project1,
+        project2: this.student.project2,
+        project3: this.student.project3,
+        project4: this.student.project4,
+        project5: this.student.project5,
+      });
     }
   }
 
@@ -37,7 +50,8 @@ export class GradeFormComponent implements OnInit {
   onDelete(): void {}
 
   onSubmit(form: NgForm): void {
-    console.log(this.student);
-    // this.createNewStudentRecord.emit(this.student);
+    // if (form.invalid) return;
+    const { value } = form;
+    this.createNewStudentRecord.emit(value);
   }
 }
