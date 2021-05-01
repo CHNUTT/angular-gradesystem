@@ -50,7 +50,7 @@ export class GradeFormComponent implements OnInit {
   onDelete(): void {}
 
   onSubmit(form: NgForm): void {
-    // if (form.invalid) return;
+    if (form.invalid) return;
     const { value } = form;
     this.createNewStudentRecord.emit(value);
   }

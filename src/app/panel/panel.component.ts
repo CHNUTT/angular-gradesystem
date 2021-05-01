@@ -32,7 +32,6 @@ export class PanelComponent implements OnInit {
   ngOnInit(): void {}
 
   onCreateNewStudentRecord(student: StudentModel): void {
-    console.log(student);
     const newStudent = new Student(
       student.fName,
       student.lName,
