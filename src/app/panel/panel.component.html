@@ -6,7 +6,8 @@
       [student]="state.selectedStudent"
       (createNewStudentRecord)="onCreateNewStudentRecord($event)"
       (updateStudentRecord)="onUpdateStudentRecord($event)"
-      (editStudentRecordCancel)="onEditStudentRecordCancel()">
+      (editStudentRecordCancel)="onEditStudentRecordCancel()"
+      (deleteStudentRecord)="onDeleteStudentRecord()">
     </app-grade-form>
     <app-grade-list class="col-12 col-xl-8 pt-5 pt-xl-0" [students]="state.students"
       (onGradeItemClicked)="onEditStudentRecord($event)">

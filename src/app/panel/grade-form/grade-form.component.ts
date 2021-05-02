@@ -24,6 +24,8 @@ export class GradeFormComponent implements OnInit {
   updateStudentRecord: EventEmitter<StudentModel> = new EventEmitter<StudentModel>();
   @Output()
   editStudentRecordCancel: EventEmitter<any> = new EventEmitter<any>();
+  @Output()
+  deleteStudentRecord: EventEmitter<any> = new EventEmitter<any>();
   @Input() editMode: boolean = false;
 
   constructor() {}
@@ -53,7 +55,10 @@ export class GradeFormComponent implements OnInit {
     this.editStudentRecordCancel.emit();
   }
 
-  onDelete(): void {}
+  onDelete(): void {
+    this.studentForm.reset();
+    this.deleteStudentRecord.emit();
+  }
 
   onSubmit(form: NgForm): void {
     if (form.invalid) return;

@@ -73,8 +73,19 @@ export class PanelComponent implements OnInit {
   }
 
   onEditStudentRecordCancel(): void {
-    this.state.selectedStudent = undefined;
-    this.state.editMode = false;
+    this.resetEditMode();
+  }
+
+  onDeleteStudentRecord(): void {
+    this.state.students = this.state.students.filter(
+      (student, index) => index !== this.state.selectedStudentIndex
+    );
+    this.resetEditMode();
+  }
+
+  resetEditMode(): void {
     this.state.selectedStudentIndex = -1;
+    this.state.editMode = false;
+    this.state.selectedStudent = undefined;
   }
 }
