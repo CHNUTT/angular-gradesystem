@@ -33,7 +33,6 @@ export class GradeFormComponent implements OnInit {
   ngOnInit(): void {}
 
   ngOnChanges(): void {
-    console.log(this.student, this.editMode);
     if (this.editMode) {
       this.studentForm.setValue({
         fName: this.student?.fName,

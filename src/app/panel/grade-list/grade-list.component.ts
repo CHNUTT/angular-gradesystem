@@ -16,7 +16,6 @@ export class GradeListComponent implements OnInit {
   ngOnInit(): void {}
 
   handleOnGradeItemClicked(index: number) {
-    console.log(index);
     this.onGradeItemClicked.emit(index);
   }
 }
