@@ -15,6 +15,7 @@ export class GradeListComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // tell parent component about the event clicked on each item (<tr></tr>) occured.
   handleOnGradeItemClicked(index: number) {
     this.onGradeItemClicked.emit(index);
   }

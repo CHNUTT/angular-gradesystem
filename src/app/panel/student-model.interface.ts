@@ -1,3 +1,5 @@
+// Define Student model interface for type purpose
+
 export interface StudentModel {
   fName: string;
   lName: string;

@@ -1,3 +1,6 @@
+// define Student class to create each student record object
+// each object has calAvg method
+
 export class Student {
   public avg!: number;
 
